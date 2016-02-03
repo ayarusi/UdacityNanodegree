@@ -1,10 +1,8 @@
-
 # A list of game levels to be chosen by the user and passed in to the play the game function - WORKS
 game_level = ["easy", "medium", "hard"]
 
 # A list of acceptable answers to be passed into the play game function. 
 answer_list = ["function","values","none","list"]
-
 
 # Print the game introduction on the screen - WORKS
 user_input_intro = raw_input("Please select a game difficulty level, by typing in either 'easy', 'medium', or 'hard':")
@@ -28,28 +26,25 @@ print
 if user_input_intro == 'easy':
     game_string = "This is the easy game. A __1__ is created with the def keyword. You specify the inputs a function takes by adding __2__ separated by commas between the parenthesis. __1__s by default return __3__ if you don't specify the value to return. __2__ can be standard data types such as string, number, dictionary, tuple and __4__, or can be more complicated such as objects and lambda functions."
 if user_input_intro == 'medium':
-    game_string = "This is the medium game."
+    game_string = "This is the medium game. Hellow __1__! In __2__ this is particularly easy; all you have to do is type in: __3__ 'Hello __1__!' Of course, that isn't a very useful thing to do. However, it is an example of how to output to the user using the __3__ command, and produces a program which does something, so it is useful in that capacity. It may seem a bit odd to do something in a Turing complete language that can be done even more easily wiht an __4__ file in a browser, but it's a step in the learning __2__ syntax, and that's really its purpose."
 if user_input_intro == 'hard':
-    user_input_intro = "This is the hard game."
+    user_input_intro = "This is the hard game. When you create a __1__, certain __2__s are automatically generated for you if you don't make them manually. These contain multiple underscores before and after the word defining them. When you write a __1__, you almost always include at least the __3__ __2__, defining variables for when __4__s of the __1__ get made. Additionally, you generally want to create a __5__ __2__, which will allow a string representation of the method to be viewed by other developers. You can also create binary operators, like __6__ and __7__, which allow + and - to be used by __4__s of the __1__. Similarly, __8__, __9__, and __10_ allow __4__s of the __1__ to be compared <with <,>, and ==>."
 print game_string
 print
 
 # Prompt user to answer question
-current_guess = 1
-user_input_answer = raw_input("What should be sustituted for answer " + str(current_guess) + "?")
-current_guess = current_guess + 1
+def next_guess(user_input_no_guesses):
+    current_guess = 1
+# Ensure the current guess is not a larger number than the user inputed amount
+    while current_guess <= user_input_no_guesses:
+        user_input_answer = raw_input("What should be sustituted for answer " + str(current_guess) + "?") # Prompt user to answer question
+        current_guess = current_guess + 1
+    else
+        print "You have too many failed attempts! Program will now close."  
 
-# Check if next blank number is equal to or less than the number of blanks chosen by the user
 
 
 
-        
-#def next_guess(user_input_no_guesses):
-#   if current_guess <= user_input_no_guesses:
-# The following prompts the user to enter the answer to the question
-#       return user_input_answer == raw_input("What should be sustituted for answer " + current_guess + "?")
-#   else:
-#       return ("You did it!")
 
 
 # Checks if the word input by the user is in the answer_list string.
@@ -65,14 +60,10 @@ def word_in_al(user_input_answer, answer_list):
 def play_game(game_string, user_input_no_guesses, user_input_answer):
     replaced = []
     game_string = game_string.split() # Split the game string into a list
-    current_guess = 1
-    while current_guess <= user_input_no_guesses: # Ensure the current guess is not a larger number than the user inputed
-        #Prompt user to answer question
-        user_input_answer = raw_input("What should be sustituted for answer " + str(current_guess) + "?") 
-        current_guess = current_guess + 1
 
-    #Check for answers in answer list and replace if correct
-    for user_input_answer in answer_list: 
+
+
+    for user_input_answer in answer_list: #Check for answers in answer list and replace if correct
         replacement = word_in_al(user_input_answer,answer_list)
         if replacement != None:
             word = word.replace(replacement,user_input_answer)
@@ -88,6 +79,6 @@ def play_game(game_string, user_input_no_guesses, user_input_answer):
 # User a for loop to replace numbered blanks with user correct answers
 
 #1 game_string[6, 29]
-#2 game_string22,42
+#2 game_string[22,42]
 #3 game_string[33]
 
