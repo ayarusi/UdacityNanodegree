@@ -2,7 +2,7 @@
 game_level = ["easy", "medium", "hard"]
 
 # A list of acceptable answers to be passed into the play game function. 
-answer_list = ["function","values","none","list","world","python","print",]
+answer_list = ["function","values","none","list","world","python","print"]
 
 # Print the game introduction on the screen - WORKS
 user_input_intro = raw_input("Please select a game difficulty level, by typing in either 'easy', 'medium', or 'hard':")
