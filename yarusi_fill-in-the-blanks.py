@@ -2,7 +2,7 @@
 game_level = ["easy", "medium", "hard"]
 
 # A list of acceptable answers to be passed into the play game function. 
-answer_list = ["function","values","none","list","world","python","print"]
+answer_list = ["function","values","none","list","world","python","print",]
 
 # Print the game introduction on the screen - WORKS
 user_input_intro = raw_input("Please select a game difficulty level, by typing in either 'easy', 'medium', or 'hard':")
@@ -19,8 +19,6 @@ print
 # A number of guesses to be chosen by the user and pass in to the play the game function - WORKS
 user_input_no_guesses = raw_input("How many guesses would you like for this problem? Please enter a positive whole number:")
 print
-#for testing
-#print user_input_guesses
 
 # The following returns the appropriate text string that correspond to the game level chosen by the user - WORKS
 if user_input_intro == 'easy':
@@ -32,51 +30,42 @@ if user_input_intro == 'hard':
 print game_string
 print
 
-# Prompt user to answer question
-def next_guess(user_input_no_guesses):
-    current_guess = 1
-# Ensure the current guess is not a larger number than the user inputed amount
-    while current_guess <= user_input_no_guesses:
-        user_input_answer = raw_input("What should be sustituted for answer " + str(current_guess) + "?") # Prompt user to answer question
-        current_guess = current_guess + 1
-    else
-        print "You have too many failed attempts! Program will now close."  
-
-
-
-
-
+current_guess = 1
+user_input_answer = raw_input("What should be sustituted for answer " + str(current_guess) + "?") # Prompt user to answer question
 
 # Checks if the word input by the user is in the answer_list string.
 def word_in_al(user_input_answer, answer_list):
-    for pos in answer_list:
-        if pos in user_input_answer:
-            return pos
-    return None
+
+    while current_guess <= user_input_no_guesses: #Ensure the current guess is not a larger number than the user inputed amount
+        if user_input_answer in answer_list:
+                print game_string
+        else:
+                print 'nope'
+	    #user_input_answer = raw_input("Incorrect guess. Please try again.") # Prompt user to answer question
+	    #next_guess(user_input_no_guesses, current_guess)
+            #current_guess = current_guess + 1
+	
 
 
-# Plays the game depending on the level chosen. A player is prompted to replace the numbered blanks in game_string
-# which appear in parts_of_speech with their own words.
-def play_game(game_string, user_input_no_guesses, user_input_answer):
+# Plays the game depending on the level chosen. A player is prompted to replace the numbered blanks in game_string which appear in parts_of_speech with their own words.
+
+
+def play_game(game_string, user_input_answer):
     replaced = []
     game_string = game_string.split() # Split the game string into a list
+
     for user_input_answer in answer_list: #Check for answers in answer list and replace if correct
         replacement = word_in_al(user_input_answer,answer_list)
         if replacement != None:
-		
             word = word.replace(replacement,user_input_answer)
             replaced.append(word)
         else:
             replaced.append(word)
         replaced = " ".join(replaced)
         return replaced
-    print play_game(game_string, answer_list):
+    
+#print play_game(game_string, user_input_answer)
                                 
       
 
-# User a for loop to replace numbered blanks with user correct answers
-
-#1 game_string[6, 29]
-#2 game_string[22,42]
-#3 game_string[33]
 
