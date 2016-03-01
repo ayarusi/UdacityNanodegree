@@ -40,7 +40,7 @@ def word_in_al(user_input_answer, answer_list):
         if user_input_answer in answer_list:
                 print game_string
         else:
-                print 'nope'
+                print 'Incorrect answer, please guess again.'
 	    #user_input_answer = raw_input("Incorrect guess. Please try again.") # Prompt user to answer question
 	    #next_guess(user_input_no_guesses, current_guess)
             #current_guess = current_guess + 1
